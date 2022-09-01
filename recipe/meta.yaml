@@ -1,17 +1,17 @@
 {% set name = "transforms3d" %}
-{% set version = "0.3.1" %}
+{% set version = "0.4.1" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 404c7797c78aa461cb8043081901fc5517cef342d5ff56becd74a7967ba88d78
+  sha256: 31c755266a0b0a222488b8d039f6f325cf486c52728c03e307ce047b2fad1179
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
   noarch: python
 
 requirements:
