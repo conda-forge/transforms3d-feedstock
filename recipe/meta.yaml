@@ -17,15 +17,17 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
   run:
-    - python
-    - numpy
+    - python >=3.6
+    - numpy >=1.15
 
 test:
   requires:
-    - pytest ==3.10.1
+    - pytest
     - nose
+    - scipy
+    - sympy
   source_files:
     - transforms3d/tests
   imports:
