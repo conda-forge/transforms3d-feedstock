@@ -6,22 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: e8b5df30eaedbee556e81c6938e55aab5365894e47d0a17615d7db7fd2393680
 
 build:
-  number: 0
+  number: 1
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
   noarch: python
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - versioneer
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - numpy >=1.15
 
 test:
@@ -30,6 +30,7 @@ test:
     - nose
     - scipy
     - sympy
+    - python {{ python_min }}
   source_files:
     - transforms3d/tests
   imports:
